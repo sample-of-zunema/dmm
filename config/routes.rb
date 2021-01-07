@@ -1,11 +1,12 @@
 Rails.application.routes.draw do
-  
+
   root to: 'homes#top'
-  
+
   get 'homes/about'
- 
+
   resources :users
 
+  get 'dreams/top'
   resources :dreams, only: [:new, :create, :index, :show, :edit, :update, :destroy] do
     resources :comments, only: [:create, :destroy]
   end
