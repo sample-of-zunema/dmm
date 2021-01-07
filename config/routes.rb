@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
-
-  get 'homes/top'
+  
+  root to: 'homes#top'
+  
   get 'homes/about'
-
+ 
   resources :users
 
   resources :dreams, only: [:new, :create, :index, :show, :edit, :update, :destroy] do
