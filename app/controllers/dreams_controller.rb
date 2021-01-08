@@ -3,7 +3,8 @@ class DreamsController < ApplicationController
   def top
   end
 
-  def new@dream = Dream.new
+  def new
+    @dream = Dream.new
   end
 
   def create
