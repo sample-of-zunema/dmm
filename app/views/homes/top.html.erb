@@ -17,17 +17,17 @@
   <!--会員登録とログインボタン-->
   <div class="row">
     <div class="col-2">
-      <%= link_to "会員登録" %>
+      <%= link_to "会員登録", new_user_registration_path, class: "btn btn-sm btn-primary" %>
     </div>
     <div class="col-2">
-      <%= link_to "ログイン" %>
+      <%= link_to "ログイン", new_user_session_path, class: "btn btn-sm btn-primary" %>
     </div>
   </div>
 
   <!--簡単ログインボタン-->
   <div class="row">
     <div class="col-2">
-      <%= link_to "簡単ログイン" %>
+      <%= link_to "簡単ログイン", class: "btn btn-sm btn-primary" %>
     </div>
   </div>
 
