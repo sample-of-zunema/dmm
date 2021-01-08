@@ -1,39 +1,33 @@
 <div class="container">
 
   <div class="row">
-    <div class="col-3">
+    <div class="col-10">
       <h2>投稿一覧</h2>
+      <table class="table">
+        <thead>
+          <tr>
+            <th></th>
+            <th>ニックネーム</th>
+            <th>投稿した日</th>
+            <th>夢を見た日</th>
+            <th>夢で感じた感情</th>
+          </tr>
+        </thead>
+        <tbody>
+        <% @dreams.each do |dream| %>
+          <tr>
+            <td>
+              <%#= attachment_image_tag book.user, :profile_image, format: 'jpeg', size: "30x30", fallback: "no_image.jpg" %>
+            </td>
+            <td><%= dream_user.username %></td>
+            <td><%= dream.day %></td>
+            <td><%= dream.emotion %></td>
+          </tr>
+          <p>コメント本文が入ります</p>
+        <% end %>
+        </tbody>
+      </table>
     </div>
-  </div>
-
-  <div class="row">
-    <div class="col-2"></div>
-    <div class="col-2">
-      <p>プロフィール写真</p>
-    </div>
-    <div class="col-1">
-      <p>名前</p>
-    </div>
-    <div class="col-1">
-      <p>投稿した日</p>
-    </div>
-    <div class="col-1">
-      <p>この夢をみた日</p>
-    </div>
-    <div class="col-1">
-      <p>夢の属性</p>
-    </div>
-    <div class="col-1">
-      <p>❤︎</p>
-    </div>
-    <div class="col-1">
-      <p>コメント◯件</p>
-    </div>
-    <div class="col-2"></div>
-  </div>
-
-  <div class="row">
-    <p>コメント本文が入ります</p>
   </div>
 
 </div>

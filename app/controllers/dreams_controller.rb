@@ -14,6 +14,7 @@ class DreamsController < ApplicationController
   end
 
   def index
+    @dreams = Dream.all
   end
 
   def show
