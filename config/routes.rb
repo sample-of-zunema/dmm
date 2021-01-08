@@ -11,11 +11,11 @@ Rails.application.routes.draw do
   end
 
   get 'users/unsubscribe'
-  get 'users/withdraw'
+  pa 'users/withdraw'
   resources :users, only: [:new, :create, :show, :edit, :update, :destroy]
 
   get 'dreams/top'
-  resources :dreams, only: [:new, :create, :index, :show, :edit, :update, :destroy] do
+  resources :dreams do
     resources :comments, only: [:create, :destroy]
   end
 
