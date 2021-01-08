@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   end
 
   get 'users/unsubscribe'
-  pa 'users/withdraw'
+  patch 'users/withdraw'
   resources :users, only: [:new, :create, :show, :edit, :update, :destroy]
 
   get 'dreams/top'
