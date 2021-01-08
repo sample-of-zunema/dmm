@@ -12,7 +12,13 @@
     <h4>この夢をみた日</h4>
     <%= f.date_select :day %>
     <h4>その夢で感じた感情</h4>
-    <%= f.select :emotion %>
+      <ul>
+        <li><label><%= f.radio_button :emotion, "楽しい", :checked => true %>楽しい</label></li>
+        <li><label><%= f.radio_button :emotion, "嫌気" %>嫌気</label></li>
+        <li><label><%= f.radio_button :emotion, "悲しい" %>嫌気</label></li>
+        <li><label><%= f.radio_button :emotion, "恐い" %>嫌気</label></li>
+        <li><label><%= f.radio_button :emotion, "怒り" %>嫌気</label></li>
+      </ul>
     <h4>夢のタイトル</h4>
     <%= f.text_field :title %>
     <h4>夢の内容</h4>
