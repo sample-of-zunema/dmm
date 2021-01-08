@@ -10,7 +10,7 @@ class DreamsController < ApplicationController
   def create
     dream = Dream.new(dream_params)
     dream.save
-    redirect_to dream_path(dream.id)
+    redirect_to dream_path(:id)
   end
 
   def index
