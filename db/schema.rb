@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_08_023724) do
+ActiveRecord::Schema.define(version: 2021_01_09_145949) do
 
   create_table "comments", force: :cascade do |t|
     t.integer "user_id"
@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 2021_01_08_023724) do
   create_table "dreams", force: :cascade do |t|
     t.integer "user_id"
     t.integer "comment_id"
-    t.datetime "day"
+    t.date "day"
     t.integer "emotion"
     t.string "title"
     t.text "body"
