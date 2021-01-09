@@ -8,7 +8,7 @@
 
   <!--新規投稿フォーム-->
   <div class="row">
-  <%= form_with model: @dream, local:true do |f| %>
+  <%= form_with model:@dream, url:'/dreams', local:true do |f| %>
     <h4>この夢をみた日</h4>
     <%= f.date_select :day %>
     <h4>その夢で感じた感情</h4>
