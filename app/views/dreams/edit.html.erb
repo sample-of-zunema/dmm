@@ -1,2 +1,35 @@
-<h1>Dreams#edit</h1>
-<p>Find me in app/views/dreams/edit.html.erb</p>
+<div class="comtainer">
+
+  <div class="row">
+    <div class="col-2">
+      <h2>夢の内容の編集</h2>
+    </div>
+  </div>
+
+  <div class="row">
+  <%= form_with model: @dream, local:true do |f| %>
+    <h4>この夢をみた日</h4>
+    <%= f.date_select :day %>
+    <h4>その夢で感じた感情</h4>
+      <ul>
+        <li><label><%= f.radio_button :emotion, "楽しい", :checked => true %>楽しい</label></li>
+        <li><label><%= f.radio_button :emotion, "嫌気" %>嫌気</label></li>
+        <li><label><%= f.radio_button :emotion, "悲しい" %>嫌気</label></li>
+        <li><label><%= f.radio_button :emotion, "恐い" %>嫌気</label></li>
+        <li><label><%= f.radio_button :emotion, "怒り" %>嫌気</label></li>
+      </ul>
+    <h4>夢のタイトル</h4>
+    <%= f.text_field :title %>
+    <h4>夢の内容</h4>
+    <%= f.text_area :body %>
+    <%= f.submit "編集完了！" %>
+  <% end %>
+  </div>
+
+  <div class="row">
+    <div class="col-2">
+      <%= link_to "削除する", dream_path(@dream.id), method: :delete, class:'btn btn-danger btn-sm' %>
+    </div>
+  </div>
+
+</div>
