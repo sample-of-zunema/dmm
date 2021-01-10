@@ -7,7 +7,6 @@
       <table class="table">
         <thead>
           <tr>
-            <th></th>
             <th>ニックネーム</th>
             <th>投稿した日</th>
             <th>夢を見た日</th>
@@ -18,9 +17,6 @@
         </thead>
         <tbody>
           <tr>
-            <td>
-              <%= image_tag @user.image, format: 'jpeg', size: "30x30", fallback: "no_image.jpg" %>
-            </td>
             <td><%= @user.name %></td>
             <td><%= @dream.created_at %></td>
             <td><%= @dream.day %></td>
