@@ -9,7 +9,6 @@ class UsersController < ApplicationController
 
   def show
     @user = current_user
-    @dream = Dream.find(params[:id])
     @dreams = Dream.all
   end
 
