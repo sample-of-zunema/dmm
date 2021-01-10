@@ -17,13 +17,20 @@
         <% @dreams.each do |dream| %>
           <tr>
             <td>
-              <%#= attachment_image_tag book.user, :profile_image, format: 'jpeg', size: "30x30", fallback: "no_image.jpg" %>
+              <%#= attachment_image_tag dream.user, :profile_image, format: 'jpeg', size: "30x30", fallback: "no_image.jpg" %>
             </td>
-            <td><%= dream_user.username %></td>
+            <td><%= dream.user.username %></td>
+            <td><%= dream.created_at %></td>
             <td><%= dream.day %></td>
             <td><%= dream.emotion %></td>
           </tr>
-          <p>コメント本文が入ります</p>
+          <tr>
+            <td><%= dream.title %></td>
+          </tr>
+          <tr>
+            <td><%= dream.body %></td>
+            <td>コメント◯件</td>
+          </tr>
         <% end %>
         </tbody>
       </table>
