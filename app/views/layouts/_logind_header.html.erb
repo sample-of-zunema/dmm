@@ -1,4 +1,4 @@
-<span class="navbar-text">ようこそ、◯◯さん</span>
+<span class="navbar-text">ようこそ、<%= current_user.username %>さん</span>
 <form class="form-inline">
   <li class="nav-item"><%= link_to "HOME", dreams_top_path, class: "btn btn-sm btn-outline-warning" %></li>
   <li class="nav-item"><%= link_to "マイページ", user_path(current_user.id), class: "btn btn-sm btn-outline-warning" %></li>
