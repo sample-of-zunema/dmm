@@ -27,6 +27,8 @@
             <td><%= @dream.emotion %></td>
             <td>❤◯件</td>
             <td>コメント◯件</td>
+            <td><%= link_to "編集", edit_dream_path, class: "btn btn-sm btn-success" %></td>
+            <td><%= link_to "削除", dream_path(@dream), method: :delete, class: "btn btn-sm btn-danger" %></td>
           </tr>
           <tr>
             <td><%= @dream.title %></td>

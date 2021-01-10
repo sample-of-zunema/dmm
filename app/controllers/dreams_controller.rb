@@ -41,6 +41,12 @@ class DreamsController < ApplicationController
     end
   end
 
+  def destroy
+    @dream = Dream.find(params[:id])
+    @dream.destroy
+    redirect_to dreams_path
+  end
+
   private
   def dream_params
     params.require(:dream).permit(:user_id, :day, :emotion, :title, :body)
