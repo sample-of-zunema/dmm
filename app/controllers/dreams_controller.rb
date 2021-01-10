@@ -8,9 +8,10 @@ class DreamsController < ApplicationController
   end
 
   def create
-    dream = Dream.new(dream_params)
-    dream.save
-    redirect_to dream_path(:id)
+    @dream = Dream.new(dream_params)
+    @dream.user_id = current_user.id
+    @dream.save
+    redirect_to dream_path(@dream.id)
   end
 
   def index
@@ -29,7 +30,7 @@ class DreamsController < ApplicationController
 
   private
   def dream_params
-    params.require(:dream).permit(:day, :emotion, :title, :body)
+    params.require(:dream).permit(:user_id, :day, :emotion, :title, :body)
   end
 
 end
