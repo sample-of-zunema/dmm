@@ -25,9 +25,20 @@ class DreamsController < ApplicationController
 
   def edit
     @dream = Dream.find(params[:id])
+    @user = @dream.user
+    if @dream.user != current_user
+      redirect_to dreams_path
+    end
   end
 
   def update
+    @dream = Dream.find(params[:id])
+    if @dream.update(dream_params)
+      redirect_to dream_path(@dream.id)
+    else
+      @dream = dream
+      render :edit
+    end
   end
 
   private
