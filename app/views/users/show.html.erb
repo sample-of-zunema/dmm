@@ -23,7 +23,7 @@
         <% @dreams.each do |dream| %>
           <tr>
             <td>
-              <%= link_to dream_path(@dream.id) do %>
+              <%= link_to dream_path(dream.id) do %>
                 <%= dream.title %>
               <% end %>
             </td>
