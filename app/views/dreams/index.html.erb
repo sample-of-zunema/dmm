@@ -6,7 +6,6 @@
       <table class="table">
         <thead>
           <tr>
-            <th></th>
             <th>ニックネーム</th>
             <th>投稿した日</th>
             <th>夢を見た日</th>
@@ -16,9 +15,6 @@
         <tbody>
         <% @dreams.each do |dream| %>
           <tr>
-            <td>
-              <%#= attachment_image_tag dream.user, :profile_image, format: 'jpeg', size: "30x30", fallback: "no_image.jpg" %>
-            </td>
             <td><%= dream.user.name %></td>
             <td><%= dream.created_at %></td>
             <td><%= dream.day %></td>
