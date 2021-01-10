@@ -8,6 +8,9 @@ class UsersController < ApplicationController
   end
 
   def show
+    @user = current_user
+    @dream = Dream.find(params[:id])
+    @dreams = Dream.all
   end
 
   def edit
