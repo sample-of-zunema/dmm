@@ -33,31 +33,14 @@
       </table>
     </div>
   </div>
-
-  <!--コメント入力フォーム-->
+  
   <div class="row">
     <div class="col-10">
-      <div class="comments">
-        <p>コメント件数：<%= @dream.comments.count %></p>
-        <% @dream.comments.each do |comment| %>
-          <%= comment.user.name %>
-          <%= comment.created_at.strftime('%Y/%m/%d') %><%= comment.comment %>
-          <% if comment.user == current_user %>
-          <div class="comment-delete">
-            <%= link_to "削除", dream_comment_path(comment.dream, comment), method: :delete %>
-          </div>
-          <% end %>
-        <% end %>
-      </div>
-      <div class="new-comment">
-        <%= form_with(model:[@dream, @comment], local: true) do |f| %>
-          <%= f.text_area :comment, rows:'5', placeholder: "コメントをここに" %>
-          <%= f.submit "送信する" %>
-        <% end %>
-      </div>
+      <!--コメント入力フォーム-->
+      <%= render 'dreams/comment', dream: @dream, comment: @comment %>
     </div>
   </div>
-
+  
   <!--コメント全て表示-->
   <div class="row">
     <div class="col-1">
