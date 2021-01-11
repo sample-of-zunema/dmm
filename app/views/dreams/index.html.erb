@@ -15,7 +15,11 @@
         <tbody>
         <% @dreams.each do |dream| %>
           <tr>
-            <td><%= dream.user.name %></td>
+            <td>
+              <%= link_to dream_path(dream.id) do %>
+                <%= dream.user.name %>
+              <% end %>
+            </td>
             <td><%= dream.created_at %></td>
             <td><%= dream.day %></td>
             <td><%= dream.emotion %></td>
