@@ -59,7 +59,7 @@
           <%= comment.created_at.strftime('%Y/%m/%d') %><%= comment.comment %>
           <% if comment.user == current_user %>
           <div class="comment-delete">
-            <%= link_to "削除", dream_comment_path(comment.dream, comment), method: :derete %>
+            <%= link_to "削除", dream_comment_path(comment.dream, comment), method: :delete %>
           </div>
           <% end %>
         <% end %>
