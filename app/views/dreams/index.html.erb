@@ -26,6 +26,9 @@
           </tr>
           <tr>
             <td><%= dream.title %></td>
+            <td>
+              <%= render 'dreams/favorites', dream: dream %>
+            </td>
           </tr>
           <tr>
             <td><%= dream.body %></td>
