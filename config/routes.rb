@@ -19,6 +19,7 @@ Rails.application.routes.draw do
 
   get 'dreams/top'
   resources :dreams do
+    resource :favorites, only: [:create, :destroy]
     resources :comments, only: [:create, :destroy]
   end
 
