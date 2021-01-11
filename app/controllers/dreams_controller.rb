@@ -1,4 +1,5 @@
 class DreamsController < ApplicationController
+  before_action :authenticate_user!, only: [:show]
 
   def top
   end
@@ -15,6 +16,7 @@ class DreamsController < ApplicationController
   end
 
   def index
+    @user = current_user
     @dreams = Dream.all
   end
 
