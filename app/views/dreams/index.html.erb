@@ -29,7 +29,7 @@
           </tr>
           <tr>
             <td><%= dream.body %></td>
-            <td>コメント◯件</td>
+            <td><%= link_to "#{dream.comments.count} コメント", dream_path(dream.id) %></td>
           </tr>
         <% end %>
         </tbody>
