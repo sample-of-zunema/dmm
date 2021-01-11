@@ -25,14 +25,14 @@
             <td>
             <% if @dream.favorited_by?(current_user) %>
               <p>
-                <%= link_to dream_favorites_path(@dream), method: :derete do %>
-                  ❤<%= @dream.favorites.count %> いいね
+                <%= link_to dream_favorites_path(@dream), method: :delete do %>
+                  ❤ <%= @dream.favorites.count %> いいね
                 <% end %>
               </p>
               <% else %>
               <p>
                 <%= link_to dream_favorites_path(@dream), method: :post do %>
-                  🖤<%= @dream.favorites.count %> いいね
+                  🖤 <%= @dream.favorites.count %> いいね
                 <% end %>
               </p>
             <% end %>
