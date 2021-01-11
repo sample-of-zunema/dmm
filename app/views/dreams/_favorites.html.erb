@@ -6,7 +6,7 @@
   </p>
   <% else %>
   <p>
-    <%= link_to dream_favorites_path(dream), method: :post do %>
+    <%= link_to dream_favorites_path(dream), method: :post, remote: true do %>
       🖤 <%= dream.favorites.count %> いいね
     <% end %>
   </p>
