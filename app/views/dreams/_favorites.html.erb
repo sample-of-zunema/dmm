@@ -1,12 +1,12 @@
 <% if dream.favorited_by?(current_user) %>
   <p>
-    <%= link_to dream_favorites_path(dream), method: :delete do %>
+    <%= link_to dream_favorites_path(dream), method: :delete, remote: true do %>
       ❤ <%= dream.favorites.count %> いいね
     <% end %>
   </p>
   <% else %>
   <p>
-    <%= link_to dream_favorites_path(dream), method: :post do %>
+    <%= link_to dream_favorites_path(dream), method: :post, remote: true do %>
       🖤 <%= dream.favorites.count %> いいね
     <% end %>
   </p>
