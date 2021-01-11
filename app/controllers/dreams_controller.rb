@@ -16,7 +16,6 @@ class DreamsController < ApplicationController
   end
 
   def index
-    @user = current_user
     @dreams = Dream.all
   end
 
