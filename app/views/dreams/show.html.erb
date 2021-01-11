@@ -13,6 +13,7 @@
             <th>夢で感じた感情</th>
             <th></th>
             <th></th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
@@ -22,7 +23,6 @@
             <td><%= @dream.day %></td>
             <td><%= @dream.emotion %></td>
             <td>❤◯件</td>
-            <td>コメント◯件</td>
             <td><%= link_to "編集", edit_dream_path, class: "btn btn-sm btn-success" %></td>
             <td><%= link_to "削除", dream_path(@dream), method: :delete, class: "btn btn-sm btn-danger" %></td>
           </tr>
@@ -37,11 +37,25 @@
 
   <!--コメント入力フォーム-->
   <div class="row">
-    <div class="col-3">
-      <p>コメント入力スペース</p>
-    </div>
-    <div class="col-1">
-      <p>送信ボタン</p>
+    <div class="col-10">
+      <div class="comments">
+        <p>コメント件数：<%= @dream.comments.count %></p>
+        <% @dream.comments.each do |comment| %>
+          <%= comment.user.name %>
+          <%= comment.created_at.strftime('%Y/%m/%d') %><%= comment.comment %>
+          <% if comment.user == current_user %>
+          <div class="comment-delete">
+            <%= link_to "削除", dream_comment_path(comment.dream, comment), method: :derete %>
+          </div>
+          <% end %>
+        <% end %>
+      </div>
+      <div class="new-comment">
+        <%= form_with(model:[@dream, @comment], local: true) do |f| %>
+          <%= f.text_area :comment, rows:'5', placeholder: "コメントをここに" %>
+          <%= f.submit "送信する" %>
+        <% end %>
+      </div>
     </div>
   </div>
 

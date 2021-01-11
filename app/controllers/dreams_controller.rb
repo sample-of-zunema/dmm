@@ -21,6 +21,7 @@ class DreamsController < ApplicationController
   def show
     @dream = Dream.find(params[:id])
     @user = @dream.user
+    @comment = Comment.new
   end
 
   def edit
