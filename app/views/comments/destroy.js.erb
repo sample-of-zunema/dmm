@@ -1,1 +1,1 @@
-$('.comments').remove();
+$('.comments').html("<%= j(render 'dreams/comment', dream: @dream, comment: @comment) %>");
