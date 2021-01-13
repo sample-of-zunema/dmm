@@ -6,6 +6,13 @@
   
   <%= month_calendar do |date| %>
     <%= date %>
+    
+    <% @dreams.each do |dream| %>
+      <div>
+        <%= link_to dream.title, dream %>
+      </div>
+    <% end %>
+    
   <% end %>
 
   <div class="row">
@@ -36,6 +43,7 @@
             <td><%= dream.emotion %></td>
             <td>❤◯件</td>
             <td>コメント◯件</td>
+            <td><%= dream.start_time %></td>
           </tr>
         <% end %>
         </tbody>
