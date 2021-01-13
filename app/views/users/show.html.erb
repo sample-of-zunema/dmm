@@ -4,55 +4,15 @@
       <h2><%= @user.name %>の夢日記</h2>
   </div>
   
-  <%= month_calendar do |date| %>
-    <%= date %>
+  <%= month_calendar events: @dreams do |date, dreams| %>
+    <%= date.day %>
     
-    <% @dreams.each do |dream| %>
+    <% dreams.each do |dream| %>
       <div>
         <%= link_to dream.title, dream %>
       </div>
     <% end %>
     
   <% end %>
-
-  <div class="row">
-    <div class="col-10">
-      <table class="table">
-        <thead>
-          <tr>
-            <th>夢のタイトル</th>
-            <th>夢の内容</th>
-            <th>投稿した日</th>
-            <th>夢を見た日</th>
-            <th>夢で感じた感情</th>
-            <th></th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody>
-        <% @dreams.each do |dream| %>
-          <tr>
-            <td>
-              <%= link_to dream_path(dream.id) do %>
-                <%= dream.title %>
-              <% end %>
-            </td>
-            <td><%= dream.body %></td>
-            <td><%= dream.created_at %></td>
-            <td><%= dream.day %></td>
-            <td><%= dream.emotion %></td>
-            <td>❤◯件</td>
-            <td>コメント◯件</td>
-            <td><%= dream.start_time %></td>
-          </tr>
-        <% end %>
-        </tbody>
-      </table>
-    </div>
-  </div>
-
-  <div class="row">
-    <h2>カレンダーが入ります</h2>
-  </div>
 
 </div>
