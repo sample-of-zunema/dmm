@@ -38,6 +38,10 @@
     <div class="col-10">
       <!--コメント入力フォーム-->
       <%= render 'dreams/comment', dream: @dream, comment: @comment %>
+      <%= form_with model:[@dream, @comment] do |f| %>
+        <%= f.text_area :comment, rows: '5', placeholder: "コメントをここに" %>
+        <%= f.submit "送信する" %>
+      <% end %>
     </div>
   </div>
 
