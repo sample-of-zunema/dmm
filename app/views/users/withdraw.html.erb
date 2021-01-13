@@ -1,2 +1,27 @@
-<h1>Users#withdraw</h1>
-<p>Find me in app/views/users/withdraw.html.erb</p>
+<div class="container">
+  
+  <div class="row">
+    <div class="col-4">
+      <h3>本当にアカウントを削除しますか？</h3>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-4">
+      <p>アカウントを削除すると、登録情報や</p>
+      <p>今まで積み重ねた夢日記が見れなくなります。</p>
+      <p>削除する場合は、「削除する」をクリックしてください。</p>
+    </div>
+  </div>
+  
+  <!--アカウントの削除する/しないボタン-->
+  <div class="row">
+    <div class="col-2">
+      <%= link_to "削除しない", user_path(current_user.id), class: "btn btn-sm btn-info" %>
+    </div>
+    <div class="col-2">
+      <%= link_to '削除する', user_registration_path, method: :delete, class: "btn btn-sm btn-danger" %>
+    </div>
+  </div>
+
+</div>
