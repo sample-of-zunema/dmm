@@ -26,9 +26,11 @@
           </tr>
           <tr>
             <td><%= dream.title %></td>
+            <% if user_signed_in? %>
             <td class="dream_<%= dream.id %>">
               <%= render 'dreams/favorites', dream: dream %>
             </td>
+            <% end %>
           </tr>
           <tr>
             <td><%= dream.body %></td>
