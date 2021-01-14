@@ -16,7 +16,11 @@
         <% @dreams.each do |dream| %>
           <tr>
             <td>
-              <%= link_to dream_path(dream.id) do %>
+              <% if user_signed_in? %>
+                <%= link_to user_path(dream.user.id) do %>
+                  <%= dream.user.name %>
+                <% end %>
+              <% else %>
                 <%= dream.user.name %>
               <% end %>
             </td>
@@ -25,7 +29,15 @@
             <td><%= dream.emotion %></td>
           </tr>
           <tr>
-            <td><%= dream.title %></td>
+            <td>
+              <% if user_signed_in? %>
+                <%= link_to dream_path(dream.id) do %>
+                  <%= dream.title %>
+                <% end %>
+              <% else %>
+                <%= dream.title %>
+              <% end %>
+            </td>
             <% if user_signed_in? %>
             <td class="dream_<%= dream.id %>">
               <%= render 'dreams/favorites', dream: dream %>
@@ -33,7 +45,7 @@
             <% end %>
           </tr>
           <tr>
-            <td><%= dream.body %></td>
+            <td><%= dream.body.truncate(100) %></td>
             <td><%= link_to "#{dream.comments.count} コメント", dream_path(dream.id) %></td>
           </tr>
         <% end %>
