@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   root to: 'homes#top'
   get 'homes/about'
-
+  
   devise_for :users, :controllers => {
     :registrations => 'users/registrations',
     :sessions => 'users/sessions',
@@ -21,6 +21,7 @@ Rails.application.routes.draw do
 
   get 'dreams/top'
   resources :dreams do
+    get :search, on: :collection
     resource :favorites, only: [:create, :destroy]
     resources :comments, only: [:create, :destroy]
   end
