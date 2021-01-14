@@ -11,8 +11,13 @@ class DreamsController < ApplicationController
   def create
     @dream = Dream.new(dream_params)
     @dream.user_id = current_user.id
-    @dream.save
-    redirect_to dream_path(@dream.id)
+    if @dream.save
+      redirect_to dream_path(@dream.id)
+    else
+      @dream = Dream.new(dream_params)
+      @dream.user_id = current_user.id
+      render :new
+    end
   end
 
   def index
