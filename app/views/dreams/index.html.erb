@@ -1,64 +1,62 @@
 <div class="container">
-  
+
   <div class="row">
     <div class="col-2.5">夢のタイトルで検索できます</div>
     <div class="col-4">
-     "検索"
+      <%= form_with url: search_dreams_path, method: :get, local: true do |f| %>
+        <%= f.text_field :title %>
+        <%= f.submit "検索" %>
+      <% end %>
     </div>
   </div>
 
   <div class="row">
-    <div class="col-10">
-      <h2>投稿一覧</h2>
-      <table class="table">
-        <thead>
-          <tr>
-            <th>ニックネーム</th>
-            <th>投稿した日</th>
-            <th>夢を見た日</th>
-            <th>夢で感じた感情</th>
-          </tr>
-        </thead>
-        <tbody>
-        <% @dreams.each do |dream| %>
-          <tr>
-            <td>
-              <% if user_signed_in? %>
-                <%= link_to user_path(dream.user.id) do %>
-                  <%= dream.user.name %>
-                <% end %>
-              <% else %>
-                <%= dream.user.name %>
-              <% end %>
-            </td>
-            <td><%= dream.created_at %></td>
-            <td><%= dream.start_time %></td>
-            <td><%= dream.emotion %></td>
-          </tr>
-          <tr>
-            <td>
-              <% if user_signed_in? %>
-                <%= link_to dream_path(dream.id) do %>
-                  <%= dream.title %>
-                <% end %>
-              <% else %>
-                <%= dream.title %>
-              <% end %>
-            </td>
-            <% if user_signed_in? %>
-            <td class="dream_<%= dream.id %>">
-              <%= render 'dreams/favorites', dream: dream %>
-            </td>
-            <% end %>
-          </tr>
-          <tr>
-            <td><%= dream.body.truncate(100) %></td>
-            <td><%= link_to "#{dream.comments.count} コメント", dream_path(dream.id) %></td>
-          </tr>
-        <% end %>
-        </tbody>
-      </table>
-    </div>
+    <h3><i class="fas fa-bed"></i> みんなの夢</h3>
   </div>
+
+  <% @dreams.each do |dream| %>
+
+    <div class="row">
+      <div class="col-2"><i class="fas fa-user-edit"></i>
+      <% if user_signed_in? %>
+        <%= link_to user_path(dream.user.id) do %>
+          <%= dream.user.name %>
+        <% end %>
+      <% else %>
+        <%= dream.user.name %>
+      <% end %>
+      </div>
+      <div class="col-3"><i class="fas fa-user-clock"></i> <%= dream.start_time.strftime("%Y年%m月%d日") %></div>
+      <% if user_signed_in? %>
+      <div class="col-1 dream_<%= dream.id %>"><%= render 'dreams/favorites', dream: dream %></div>
+      <% end %>
+      <div class="col-1"><i class="far fa-comment-alt"></i>
+      <% if user_signed_in? %>
+        <%= link_to "#{dream.comments.count}", dream_path(dream.id) %>
+      <% else %>
+        <%= dream.comments.count %>
+      <% end %>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-4">夢名「
+          <% if user_signed_in? %>
+            <%= link_to dream_path(dream.id) do %>
+              <%= dream.title %>
+            <% end %>
+          <% else %>
+            <%= dream.title %>
+          <% end %> 」<br />
+          <i class="fas fa-hand-holding-heart"></i> <%= dream.emotion %>
+      </div>
+      <div class="col-8"> 夢の内容<br />
+        「 <%= dream.body.truncate(100) %> 」
+      </div>
+    </div>
+
+    <div class="row">------</div>
+
+  <% end %>
 
 </div>

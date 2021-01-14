@@ -2,39 +2,38 @@
 
   <!--夢の詳細情報-->
   <div class="row">
-    <div class="col-10">
-      <h2>夢の詳細</h2>
-      <table class="table">
-        <thead>
-          <tr>
-            <th>ニックネーム</th>
-            <th>投稿した日</th>
-            <th>夢を見た日</th>
-            <th>夢で感じた感情</th>
-            <th></th>
-            <th></th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><%= @user.name %></td>
-            <td><%= @dream.created_at %></td>
-            <td><%= @dream.start_time %></td>
-            <td><%= @dream.emotion %></td>
-            <% if @user.id == current_user.id %>
-            <td><%= link_to "編集", edit_dream_path, class: "btn btn-sm btn-success" %></td>
-            <% end %>
-          </tr>
-          <tr>
-            <td><%= @dream.title %></td>
-            <td><%= @dream.body %></td>
-          </tr>
-        </tbody>
-      </table>
+    <div class="col-2">ニックネーム<br />
+      <i class="fas fa-user-edit"></i> <%= @user.name %>
+    </div>
+    <div class="col-3">この夢を見た日<br />
+      <i class="fas fa-user-clock"></i> <%= @dream.start_time.strftime("%Y年%m月%d日") %>
+    </div>
+    <div class="col-3">投稿日<br />
+      <%= @dream.created_at.strftime("%Y年%m月%d日") %>
+    </div>
+    <div class="col-2">
+      <i class="far fa-heart"></i> <%= @dream.favorites.count %> いいね
+    </div>
+    <div class="col-2">
+      <i class="far fa-comment-alt"></i> <%= @dream.comments.count %> コメント
     </div>
   </div>
 
+  <div class="row">
+    <div class="col-4">夢 名<br />
+      「 <%= @dream.title %> 」
+    </div>
+    <div class="col-2">感じた感情<br />
+      <i class="fas fa-hand-holding-heart"></i> <%= @dream.emotion %>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-10"> 夢の内容<br />
+      「 <%= @dream.body %> 」
+    </div>
+  </div>
+  
   <div class="row">
     <div class="col-10">
       <!--コメント入力フォーム-->
