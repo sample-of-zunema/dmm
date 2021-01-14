@@ -1,0 +1,18 @@
+<%= form_with url: search_dreams_path, method: :get, local: true do |f| %>
+  <%= f.text_field :title %>
+  <%= f.submit "検索" %>
+<% end %>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @dreams.each do |dream| %>
+      <tr>
+        <td><%= dream.title %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
