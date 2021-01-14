@@ -1,33 +1,35 @@
 <div class="comtainer">
 
   <div class="row">
-    <div class="col-2">
-      <h2>夢の内容の編集</h2>
+    <div class="col-10 mx-auto">
+      <h3>夢の内容の編集</h3>
     </div>
   </div>
 
   <div class="row">
-  <%= form_with model: @dream, local:true do |f| %>
-    <h4>この夢をみた日</h4>
-    <%= f.datetime_field :start_time %>
-    <h4>その夢で感じた感情</h4>
-      <ul>
-        <li><label><%= f.radio_button :emotion, "楽しい", :checked => true %>楽しい</label></li>
-        <li><label><%= f.radio_button :emotion, "嫌気" %>嫌気</label></li>
-        <li><label><%= f.radio_button :emotion, "悲しい" %>悲しい</label></li>
-        <li><label><%= f.radio_button :emotion, "恐い" %>恐い</label></li>
-        <li><label><%= f.radio_button :emotion, "怒り" %>怒り</label></li>
-      </ul>
-    <h4>夢のタイトル</h4>
-    <%= f.text_field :title %>
-    <h4>夢の内容</h4>
-    <%= f.text_area :body %>
-    <%= f.submit "編集完了！" %>
-  <% end %>
+    <div class="col-10 mx-auto">
+    <%= form_with model: @dream, local:true do |f| %>
+      <h6>この夢をみた日</h6>
+      <%= f.datetime_field :start_time %>
+      <h6>その夢で感じた感情</h6>
+        <ul>
+          <li><label><%= f.radio_button :emotion, "楽しい", :checked => true %>楽しい</label></li>
+          <li><label><%= f.radio_button :emotion, "嫌気" %>嫌気</label></li>
+          <li><label><%= f.radio_button :emotion, "悲しい" %>悲しい</label></li>
+          <li><label><%= f.radio_button :emotion, "恐い" %>恐い</label></li>
+          <li><label><%= f.radio_button :emotion, "怒り" %>怒り</label></li>
+        </ul>
+      <h6>夢のタイトル</h6>
+      <%= f.text_field :title %>
+      <h6>夢の内容</h6>
+      <%= f.text_area :body %><br />
+      <%= f.submit "編集完了！" %>
+    <% end %>
+    </div>
   </div>
 
   <div class="row">
-    <div class="col-2">
+    <div class="col-10 mx-auto">
       <%= link_to "削除する", dream_path(@dream.id), method: :delete, class:'btn btn-danger btn-sm' %>
     </div>
   </div>
