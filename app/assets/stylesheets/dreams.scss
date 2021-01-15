@@ -1,11 +1,4 @@
-// Place all the styles related to the dreams controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
-
-.row {
-  padding: 10px;
-}
-
-h6 {
-  margin: 10px;
+.cover{
+  background-image: image-url('dreams/library.jpg');
+  background-size: cover;
 }

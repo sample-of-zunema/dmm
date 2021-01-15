@@ -11,9 +11,9 @@
 
   <body>
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-dark">
       <div class="container">
-        <a class="navbar-brand" href="#">夢のロゴ</a>
+        <a class="navbar-brand" href="#">Dream sharing</a>
         <ul class="navbar-nav">
         <% if signed_in? %>
           <%= render 'layouts/logind_header' %>
@@ -28,6 +28,16 @@
     <p class="alert"><%= alert %></p>
 
     <%= yield %>
+
+    <footer>
+      <div class="container mt-5">
+        <div class="row">
+          <div class="mx-auto">
+            <p>© 2021 zunema Inc. ALL Rights Reserved.</p>
+          </div>
+        </div>
+      </div>
+    </footer>
 
   </body>
 </html>
