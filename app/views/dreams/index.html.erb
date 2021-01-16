@@ -17,7 +17,7 @@
   <% @dreams.each do |dream| %>
 
     <div class="row">
-      <div class="col-2"><i class="fas fa-user-edit"></i>
+      <div class="col-2">
       <% if user_signed_in? %>
         <%= link_to user_path(dream.user.id) do %>
           <%= dream.user.name %>
@@ -49,7 +49,7 @@
         <i class="fas fa-hand-holding-heart"></i> <%= dream.emotion %>
       </div>
     </div>
-    
+
     <div class="row">
       <div class="col-10"> 夢の内容<br />
         「 <%= dream.body.truncate(100) %> 」
