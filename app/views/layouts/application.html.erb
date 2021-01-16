@@ -24,10 +24,11 @@
       </div>
     </nav>
 
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-
-    <%= yield %>
+    <div class="main-container">
+      <%= notice %>
+      <%= alert %>
+      <%= yield %>
+    </div>
 
     <footer>
       <div class="container mt-5">
