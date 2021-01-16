@@ -4,6 +4,10 @@
       <h3><%= @user.name %>の夢日記</h3>
   </div>
 
+  <div class="row">
+    <%= image_tag @user.image.thumb.url, format: 'jpeg', size: "50x50", fallback: "no_image.jpg" %>
+  </div>
+
   <%= month_calendar events: @dreams do |date, dreams| %>
     <%= date.day %>
     <% dreams.each do |dream| %>

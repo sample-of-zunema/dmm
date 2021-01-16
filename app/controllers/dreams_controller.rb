@@ -53,7 +53,7 @@ class DreamsController < ApplicationController
     @dream.destroy
     redirect_to dreams_path
   end
-  
+
   def search
     if params[:title].present?
       @dreams = Dream.where('title LIKE ?', "%#{params[:title]}%")
