@@ -18,21 +18,15 @@
   <div class="container border">
     <div class="row border-bottom align-items-center">
       <div class="col-2">
-        <%= image_tag dream.user.image.thumb.to_s, format: 'jpeg', size: "50x50", fallback: "no_image.jpg" %>
-        <% if user_signed_in? %>
-          <%= link_to user_path(dream.user.id) do %>
-            <%= dream.user.name %>
-          <% end %>
-        <% else %>
+      <%= image_tag dream.user.image.thumb.to_s, format: 'jpeg', size: "50x50", fallback: "no_image.jpg" %>
+      <% if user_signed_in? %>
+        <%= link_to user_path(dream.user.id) do %>
           <%= dream.user.name %>
         <% end %>
+      <% else %>
+        <%= dream.user.name %>
+      <% end %>
       </div>
-      <div class="col-3 text-center"><i class="fas fa-user-clock"></i> <%= dream.start_time.strftime("%Y年%m月%d日") %></div>
-      
-      
-    </div>
-
-    <div class="row align-items-center">
       <div class="col-4">夢名「
         <%= link_to dream_path(dream.id) do %>
           <%= dream.title %>
@@ -41,17 +35,21 @@
       <div class="col-2">
         <i class="fas fa-hand-holding-heart"></i> <%= dream.emotion %>
       </div>
+      <div class="col-3 text-center"><i class="fas fa-user-clock"></i> <%= dream.start_time.strftime("%Y年%m月%d日") %></div>
     </div>
-
     <div class="row">
       <div class="col-10"> 夢の内容<br />
         「 <%= dream.body.truncate(100) %> 」
       </div>
     </div>
-    
+
     <div class="row">
       <% if user_signed_in? %>
       <div class="col-1 dream_<%= dream.id %>"><%= render 'dreams/favorites', dream: dream %></div>
+      <% else %>
+      <div class="col-1">
+        <i class="far fa-heart"></i> <%= dream.favorites.count %>
+      </div>
       <% end %>
       <div class="col-1"><i class="far fa-comment-alt"></i>
       <% if user_signed_in? %>
