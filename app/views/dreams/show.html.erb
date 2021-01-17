@@ -1,33 +1,9 @@
- <div class="container">
+<div class="container">
 
-  <!--夢の詳細情報-->
-  <div class="row">
-    <div class="col-2">ニックネーム<br />
-      <i class="fas fa-user-edit"></i>
-      <%= link_to user_path(@user.id) do %>
-        <%= @user.name %>
-      <% end %>
-    </div>
-    <div class="col-3">この夢を見た日<br />
-      <i class="fas fa-user-clock"></i> <%= @dream.start_time.strftime("%Y年%m月%d日") %>
-    </div>
-    <div class="col-3">投稿日<br />
-      <%= @dream.created_at.strftime("%Y年%m月%d日") %>
-    </div>
-    <div class="col-2">
-      <i class="far fa-heart"></i> <%= @dream.favorites.count %> いいね
-    </div>
-    <div class="col-2">
-      <i class="far fa-comment-alt"></i> <%= @dream.comments.count %> コメント
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col-4">夢 名<br />
-      「 <%= @dream.title %> 」
-    </div>
-    <div class="col-2">感じた感情<br />
-      <i class="fas fa-hand-holding-heart"></i> <%= @dream.emotion %>
+  <!--投稿のタイトル-->
+  <div class="row align-items-center">
+    <div class="col-4">
+      <h4>夢 名 「 <%= @dream.title %> 」</h4>
     </div>
     <% if @user == current_user %>
     <div class="col-2">
@@ -36,18 +12,53 @@
     <% end %>
   </div>
 
-  <div class="row">
-    <div class="col-10"> 夢の内容<br />
-      「 <%= @dream.body %> 」
+  <!--投稿の詳細情報-->
+  <div class="container border">
+
+    <div class="row border-bottom text-center align-items-center">
+      <div class="col-2">
+        <%= image_tag @user.image.thumb.to_s, format: 'jpeg', size: "50x50", fallback: "no_image.jpg" %>
+      </div>
+      <div class="col-2">
+        <i class="fas fa-user-tag"></i>ニックネーム<br />
+        <%= link_to user_path(@user.id) do %>
+          <%= @user.name %>
+        <% end %>
+      </div>
+      <div class="col-2">
+        <i class="fas fa-hand-holding-heart"></i> 感情<br />
+        <%= @dream.emotion %>
+      </div>
+      <div class="col-3">
+        <i class="fas fa-user-clock"></i> 夢を見た日<br />
+        <%= @dream.start_time.strftime("%Y年%m月%d日") %>
+      </div>
+      <div class="col-3">
+        <i class="fas fa-paper-plane"></i> 投稿日<br />
+        <%= @dream.created_at.strftime("%Y年%m月%d日") %>
+      </div>
     </div>
+
+    <div class="row">
+      <div class="col-10"> 夢の内容<br />
+        「 <%= @dream.body %> 」
+      </div>
+    </div>
+
   </div>
 
   <div class="row">
-    <div class="col-10">
-      <!--コメント入力フォーム-->
+    <div class="col-1 dream_<%= @dream.id %>"><%= render 'dreams/favorites', dream: @dream %></div>
+  </div>
+
+  <div class="row">
+    <div class="col-5">
       <%= render 'dreams/comment', dream: @dream, comment: @comment %>
+    </div>
+    <!--コメント入力フォーム-->
+    <div class="col-3">
       <%= form_with model:[@dream, @comment] do |f| %>
-        <%= f.text_area :comment, rows: '5', placeholder: "コメントをここに" %>
+        <%= f.text_area :comment, rows: '5', placeholder: "コメントをここに", :size => "30*100" %>
         <%= f.submit "送信する" %>
       <% end %>
     </div>
