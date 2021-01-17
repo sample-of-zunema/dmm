@@ -3,7 +3,10 @@
   <!--夢の詳細情報-->
   <div class="row">
     <div class="col-2">ニックネーム<br />
-      <i class="fas fa-user-edit"></i> <%= @user.name %>
+      <i class="fas fa-user-edit"></i>
+      <%= link_to user_path(@user.id) do %>
+        <%= @user.name %>
+      <% end %>
     </div>
     <div class="col-3">この夢を見た日<br />
       <i class="fas fa-user-clock"></i> <%= @dream.start_time.strftime("%Y年%m月%d日") %>
@@ -26,14 +29,19 @@
     <div class="col-2">感じた感情<br />
       <i class="fas fa-hand-holding-heart"></i> <%= @dream.emotion %>
     </div>
+    <% if @user == current_user %>
+    <div class="col-2">
+      <%= link_to "編集", edit_dream_path(@dream) %>
+    </div>
+    <% end %>
   </div>
-  
+
   <div class="row">
     <div class="col-10"> 夢の内容<br />
       「 <%= @dream.body %> 」
     </div>
   </div>
-  
+
   <div class="row">
     <div class="col-10">
       <!--コメント入力フォーム-->
