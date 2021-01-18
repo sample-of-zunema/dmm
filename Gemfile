@@ -65,6 +65,7 @@ gem 'dotenv-rails'
 gem 'activeadmin'
 gem 'devise'
 gem 'simple_calendar', '~> 2.0'
+gem 'rails-i18n'
 gem 'devise-i18n'
 gem 'devise-i18n-views'
 
