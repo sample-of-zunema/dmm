@@ -10,38 +10,34 @@
   </head>
 
   <body>
-    <div class="footerFixed">
-
-      <nav class="navbar navbar-dark">
-        <div class="container">
-          <a class="navbar-brand" href="#"><%= image_tag 'dreamsharing.png', size: "50x50" %></a>
-          <ul class="navbar-nav">
-          <% if signed_in? %>
-            <%= render 'layouts/logind_header' %>
-          <% else %>
-            <%= render 'layouts/notlogind_header' %>
-          <% end %>
-          </ul>
-        </div>
-      </nav>
-
+    <nav class="navbar navbar-dark">
       <div class="container">
-        <%= notice %>
-        <%= alert %>
-        <%= yield %>
+        <a class="navbar-brand" href="#"><%= image_tag 'dreamsharing.png', size: "50x50" %></a>
+        <ul class="navbar-nav">
+        <% if signed_in? %>
+          <%= render 'layouts/logind_header' %>
+        <% else %>
+          <%= render 'layouts/notlogind_header' %>
+        <% end %>
+        </ul>
       </div>
+    </nav>
 
-      <footer>
-        <div class="container mt-5">
-          <div class="row">
-            <div class="mx-auto">
-              <p>© 2021 zunema Inc. ALL Rights Reserved.</p>
-            </div>
-          </div>
-        </div>
-      </footer>
-
+    <div class="container">
+      <%= notice %>
+      <%= alert %>
+      <%= yield %>
     </div>
 
+    <footer>
+      <div class="container mt-5">
+        <div class="row">
+          <div class="mx-auto">
+            <p>© 2021 zunema Inc. ALL Rights Reserved.</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+      
   </body>
 </html>
