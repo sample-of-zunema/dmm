@@ -87,6 +87,7 @@ ActiveRecord::Schema.define(version: 2021_01_19_024057) do
 
   create_table "inquiries", force: :cascade do |t|
     t.string "name"
+    t.string "email"
     t.string "message"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
