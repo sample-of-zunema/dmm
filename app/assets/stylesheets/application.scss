@@ -46,3 +46,16 @@
 .nav-item a {
   color: #5E17EB;
 }
+
+.pagination li a {
+  border: none;
+  color: #696969;
+}
+
+.pagination .active a {
+  background: #AAAAAA;
+}
+
+.pagination li a:hover {
+  border-radius: 15px;
+}

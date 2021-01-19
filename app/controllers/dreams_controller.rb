@@ -21,7 +21,7 @@ class DreamsController < ApplicationController
   end
 
   def index
-    @dreams = Dream.all
+    @dreams = Dream.all.page(params[:page]).per(10)
   end
 
   def show
@@ -56,9 +56,9 @@ class DreamsController < ApplicationController
 
   def search
     if params[:title].present?
-      @dreams = Dream.where('title LIKE ?', "%#{params[:title]}%")
+      @dreams = Dream.where('title LIKE ?', "%#{params[:title]}%").page(params[:page]).per(10)
     else
-      @dreams = Dream.none
+      @dreams = Dream.none.page(params[:page]).per(10)
     end
   end
 

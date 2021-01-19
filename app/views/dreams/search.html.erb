@@ -1,5 +1,5 @@
 <div class="container">
-  
+
   <div class="row">
     <div class="col-10">
     <%= form_with url: search_dreams_path, method: :get, local: true do |f| %>
@@ -8,7 +8,7 @@
     <% end %>
     </div>
   </div>
-  
+
   <% @dreams.each do |dream| %>
   <div class="container border">
     <div class="row border-bottom align-items-center">
@@ -57,5 +57,7 @@
 
   </div>
   <% end %>
-  
-  </div>
+
+</div>
+
+<%= paginate @dreams %>
