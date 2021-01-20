@@ -1,8 +1,10 @@
+<!--いいね済みなら押したら削除-->
 <% if dream.favorited_by?(current_user) %>
   <%= link_to dream_favorites_path(dream), method: :delete, remote: true do %>
     ❤ <%= dream.favorites.count %>
   <% end %>
 <% else %>
+<!--未いいねなら押したらいいねする-->
   <%= link_to dream_favorites_path(dream), method: :post, remote: true do %>
     🖤 <%= dream.favorites.count %>
   <% end %>

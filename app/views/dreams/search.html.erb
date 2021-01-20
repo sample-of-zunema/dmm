@@ -1,5 +1,6 @@
 <div class="container">
 
+  <!--検索フォーム-->
   <div class="row">
     <div class="col-10">
     <%= form_with url: search_dreams_path, method: :get, local: true do |f| %>
@@ -9,20 +10,24 @@
     </div>
   </div>
 
+  <!--投稿の一覧-->
   <% @dreams.each do |dream| %>
   <div class="container border">
     <div class="row border-bottom align-items-center">
       <div class="col-2">
       <%= image_tag dream.user.image.thumb.to_s, format: 'jpeg', size: "50x50", fallback: "no_image.jpg" %>
+      <!--ログイン済みなら名前からユーザーページへ-->
       <% if user_signed_in? %>
         <%= link_to user_path(dream.user.id) do %>
           <%= dream.user.name %>
         <% end %>
       <% else %>
+        <!--未ログインならリンクは表示しない-->
         <%= dream.user.name %>
       <% end %>
       </div>
       <div class="col-4">夢名「
+        <!--投稿の詳細へ-->
         <%= link_to dream_path(dream.id) do %>
           <%= dream.title %>
         <% end %> 」
@@ -34,22 +39,27 @@
     </div>
     <div class="row">
       <div class="col-10"> 夢の内容<br />
+        <!--内容の表示を100文字までに設定-->
         「 <%= dream.body.truncate(100) %> 」
       </div>
     </div>
 
     <div class="row">
+      <!--ログイン済みならいいねできる-->
       <% if user_signed_in? %>
       <div class="col-1 dream_<%= dream.id %>"><%= render 'dreams/favorites', dream: dream %></div>
       <% else %>
+      <!--未ログインならいいね数だけ表示-->
       <div class="col-1">
         <i class="far fa-heart"></i> <%= dream.favorites.count %>
       </div>
       <% end %>
       <div class="col-1"><i class="far fa-comment-alt"></i>
+      <!--ログイン済みなら投稿の詳細へ-->
       <% if user_signed_in? %>
         <%= link_to "#{dream.comments.count}", dream_path(dream.id) %>
       <% else %>
+        <!--未ログインならコメント件数のみ表示-->
         <%= dream.comments.count %>
       <% end %>
       </div>
