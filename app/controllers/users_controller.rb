@@ -1,19 +1,9 @@
 class UsersController < ApplicationController
 
-  def new
-  end
-
-  def create
-  end
-
   def show
     @user = current_user
     @user = User.find(params[:id])
     @dreams = @user.dreams
-  end
-
-  def edit
-    @user = User.find(params[:id])
   end
 
   def update
@@ -21,12 +11,8 @@ class UsersController < ApplicationController
     if @user.update(user_params)
       redirect_to @user
     else
-      render :edit
+      redirect_to edit_user_registration_path
     end
-
-  end
-
-  def unsubscribe
   end
 
   def withdraw
