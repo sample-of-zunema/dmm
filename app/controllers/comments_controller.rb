@@ -1,5 +1,6 @@
 class CommentsController < ApplicationController
 
+  # コメントの新規作成
   def create
     @dream = Dream.find(params[:dream_id])
     @comment = Comment.new(comment_params)
@@ -10,6 +11,7 @@ class CommentsController < ApplicationController
     @user = @dream.user
   end
 
+  # コメントの削除
   def destroy
     Comment.find_by(id: params[:id], dream_id: params[:dream_id]).destroy
     @dream = Dream.find(params[:dream_id])

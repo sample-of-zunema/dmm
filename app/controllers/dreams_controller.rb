@@ -1,13 +1,16 @@
 class DreamsController < ApplicationController
   before_action :authenticate_user!, only: [:show]
 
+  # トップページ
   def top
   end
 
+  # 新規投稿のための箱
   def new
     @dream = Dream.new
   end
 
+  # 新規投稿の作成
   def create
     @dream = Dream.new(dream_params)
     @dream.user_id = current_user.id
@@ -18,24 +21,29 @@ class DreamsController < ApplicationController
     end
   end
 
+  # 投稿一覧ページ（ページャ追加）
   def index
     @dreams = Dream.all.page(params[:page]).per(10)
   end
 
+  # 投稿の詳細ページ
   def show
     @dream = Dream.find(params[:id])
     @user = @dream.user
     @comment = Comment.new
   end
 
+  # 投稿の編集ページ
   def edit
     @dream = Dream.find(params[:id])
     @user = @dream.user
+    # 投稿者でなければ一覧画面へリダイレクト
     if @dream.user != current_user
       redirect_to dreams_path
     end
   end
 
+  # 投稿内容の更新
   def update
     @dream = Dream.find(params[:id])
     if @dream.update(dream_params)
@@ -46,14 +54,17 @@ class DreamsController < ApplicationController
     end
   end
 
+  # 投稿の削除
   def destroy
     @dream = Dream.find(params[:id])
     @dream.destroy
     redirect_to dreams_path
   end
 
+  # 投稿の検索ページ
   def search
     if params[:title].present?
+      # 投稿のタイトルと部分一致する投稿を検索
       @dreams = Dream.where('title LIKE ?', "%#{params[:title]}%").page(params[:page]).per(10)
     else
       @dreams = Dream.none.page(params[:page]).per(10)
