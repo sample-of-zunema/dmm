@@ -1,4 +1,12 @@
 ja:
+  activerecord:
+    models:
+      dream:
+    attributes:
+      dream:
+        title: "夢のタイトル"
+        body: "夢の内容"
+        start_time: "夢を見た日"
   views:
     pagination:
       first: "&laquo; 最初"
