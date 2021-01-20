@@ -14,8 +14,6 @@ class DreamsController < ApplicationController
     if @dream.save
       redirect_to dream_path(@dream.id)
     else
-      @dream = Dream.new(dream_params)
-      @dream.user_id = current_user.id
       render :new
     end
   end
