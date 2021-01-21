@@ -20,9 +20,8 @@ Rails.application.routes.draw do
   end
 
   # usersのルート
-  get 'users/unsubscribe'
   patch 'users/withdraw'
-  resources :users, only: %i[new create show edit update destroy]
+  resources :users, only: %i[show]
 
   # dreamsのルート
   get 'dreams/top'
