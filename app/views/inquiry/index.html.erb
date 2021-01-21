@@ -3,6 +3,7 @@
     <h1>お問い合わせ</h1>
   </div>
 
+  <!--入力内容のエラー表示-->
   <% if @inquiry.errors.any? %>
     <div class="alert alert-danger" role="alert">
       <strong>入力内容にエラーがあります</strong>
@@ -14,6 +15,7 @@
     </div>
   <% end %>
 
+  <!--問い合わせ内容入力フォーム-->
   <table class="table">
     <tr>
       <th>名前<span class="text-danger">（必須）</span></th>
