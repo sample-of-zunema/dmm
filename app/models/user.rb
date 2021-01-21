@@ -4,7 +4,7 @@ class User < ApplicationRecord
 
   # deviseの基本設定（:authentication_keys => [:name]を追加し、nameでログインできる設定）
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable, :timeoutable, :authentication_keys => [:name]
+         :recoverable, :rememberable, :validatable, :timeoutable, authentication_keys: [:name]
 
   # 新規登録時nameも必須にするためバリデーションチェック
   validates :name, presence: true
@@ -23,5 +23,4 @@ class User < ApplicationRecord
   has_many :dreams, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
-
 end

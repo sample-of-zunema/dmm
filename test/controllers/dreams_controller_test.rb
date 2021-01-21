@@ -1,34 +1,33 @@
 require 'test_helper'
 
 class DreamsControllerTest < ActionDispatch::IntegrationTest
-  test "should get new" do
+  test 'should get new' do
     get dreams_new_url
     assert_response :success
   end
 
-  test "should get create" do
+  test 'should get create' do
     get dreams_create_url
     assert_response :success
   end
 
-  test "should get index" do
+  test 'should get index' do
     get dreams_index_url
     assert_response :success
   end
 
-  test "should get show" do
+  test 'should get show' do
     get dreams_show_url
     assert_response :success
   end
 
-  test "should get edit" do
+  test 'should get edit' do
     get dreams_edit_url
     assert_response :success
   end
 
-  test "should get update" do
+  test 'should get update' do
     get dreams_update_url
     assert_response :success
   end
-
 end

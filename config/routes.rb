@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-
   # ActiveAdminのルートの基本設定
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
@@ -7,30 +6,30 @@ Rails.application.routes.draw do
   get 'homes/about'
 
   # deviseのルート基本設定
-  devise_for :users, :controllers => {
-    :registrations => 'users/registrations',
-    :sessions => 'users/sessions',
-    :passwords => 'users/passwords'
+  devise_for :users, controllers: {
+    registrations: 'users/registrations',
+    sessions: 'users/sessions',
+    passwords: 'users/passwords'
   }
 
   # deviseのルート基本設定
   devise_scope :user do
-    get "sign_in", :to => "users/sessions#new"
-    get "sign_out", :to => "users/sessions#destroy"
+    get 'sign_in', to: 'users/sessions#new'
+    get 'sign_out', to: 'users/sessions#destroy'
     post 'users/guest_sign_in', to: 'users/sessions#new_guest'
   end
 
   # usersのルート
   get 'users/unsubscribe'
   patch 'users/withdraw'
-  resources :users, only: [:new, :create, :show, :edit, :update, :destroy]
+  resources :users, only: %i[new create show edit update destroy]
 
   # dreamsのルート
   get 'dreams/top'
   resources :dreams do
     get :search, on: :collection
-    resource :favorites, only: [:create, :destroy]
-    resources :comments, only: [:create, :destroy]
+    resource :favorites, only: %i[create destroy]
+    resources :comments, only: %i[create destroy]
   end
 
   # 問い合わせのルート

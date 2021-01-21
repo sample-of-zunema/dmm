@@ -1,5 +1,4 @@
 class InquiryController < ApplicationController
-
   # 問い合わせページ
   def index
     @inquiry = Inquiry.new
@@ -28,14 +27,13 @@ class InquiryController < ApplicationController
     InquiryMailer.received_email(@inquiry).deliver
     # 管理者にもメールの詳細を送信
     @admin = Inquiry.new
-    @admin.email = ENV["SEND_MAIL"]
+    @admin.email = ENV['SEND_MAIL']
     InquiryMailer.received_email(@admin).deliver
     # 完了画面を表示
-    render :action => 'thanks'
+    render action: 'thanks'
   end
 
   def inquiry_params
     params.require(:inquiry).permit(:name, :email, :message)
   end
-
 end

@@ -2,8 +2,7 @@ class DreamsController < ApplicationController
   before_action :authenticate_user!, only: [:show]
 
   # トップページ
-  def top
-  end
+  def top; end
 
   # 新規投稿のための箱
   def new
@@ -38,9 +37,7 @@ class DreamsController < ApplicationController
     @dream = Dream.find(params[:id])
     @user = @dream.user
     # 投稿者でなければ一覧画面へリダイレクト
-    if @dream.user != current_user
-      redirect_to dreams_path
-    end
+    redirect_to dreams_path if @dream.user != current_user
   end
 
   # 投稿内容の更新
@@ -63,17 +60,17 @@ class DreamsController < ApplicationController
 
   # 投稿の検索ページ
   def search
-    if params[:title].present?
-      # 投稿のタイトルと部分一致する投稿を検索
-      @dreams = Dream.where('title LIKE ?', "%#{params[:title]}%").page(params[:page]).per(10)
-    else
-      @dreams = Dream.none.page(params[:page]).per(10)
-    end
+    @dreams = if params[:title].present?
+                # 投稿のタイトルと部分一致する投稿を検索
+                Dream.where('title LIKE ?', "%#{params[:title]}%").page(params[:page]).per(10)
+              else
+                Dream.none.page(params[:page]).per(10)
+              end
   end
 
   private
+
   def dream_params
     params.require(:dream).permit(:user_id, :day, :emotion, :title, :body, :start_time)
   end
-
 end
