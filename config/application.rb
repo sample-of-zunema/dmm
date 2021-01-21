@@ -7,6 +7,7 @@ require 'rails/all'
 Bundler.require(*Rails.groups)
 
 module DreamSharing
+  # 多言語化の設定
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.time_zone = 'Tokyo'

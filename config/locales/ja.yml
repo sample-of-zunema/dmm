@@ -1,4 +1,5 @@
 ja:
+  # 新規投稿のエラー表示を日本語化
   activerecord:
     models:
       dream:
@@ -8,6 +9,7 @@ ja:
         body: "夢の内容"
         start_time: "夢を見た日"
   views:
+    # ページャの日本語化
     pagination:
       first: "&laquo; 最初"
       last: "最後 &raquo;"
