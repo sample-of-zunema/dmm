@@ -1,5 +1,4 @@
 class CommentsController < ApplicationController
-
   # コメントの新規作成
   def create
     @dream = Dream.find(params[:dream_id])
@@ -23,5 +22,4 @@ class CommentsController < ApplicationController
   def comment_params
     params.require(:comment).permit(:id, :dream_id, :user_id, :comment)
   end
-
 end

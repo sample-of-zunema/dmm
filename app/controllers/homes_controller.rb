@@ -1,11 +1,7 @@
 class HomesController < ApplicationController
-
   # サイトトップ
-  def top
-  end
+  def top; end
 
   # aboutページ
-  def about
-  end
-
+  def about; end
 end

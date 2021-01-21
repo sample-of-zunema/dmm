@@ -1,5 +1,4 @@
 class Dream < ApplicationRecord
-
   # user/comments/favoritesをそれぞれアソシエーション
   belongs_to :user
   has_many :comments, dependent: :destroy
@@ -16,6 +15,5 @@ class Dream < ApplicationRecord
   validates :start_time, presence: true
 
   # emotion（感情）の分類
-  enum emotion: {楽しい: 0, 嫌気: 1, 悲しい: 2, 恐い: 3, 怒り: 4}
-
+  enum emotion: { 楽しい: 0, 嫌気: 1, 悲しい: 2, 恐い: 3, 怒り: 4 }
 end

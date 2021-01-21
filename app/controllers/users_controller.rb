@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-
   # マイページ
   def show
     @user = current_user
@@ -20,11 +19,9 @@ class UsersController < ApplicationController
   end
 
   # 退会ページ
-  def withdraw
-  end
+  def withdraw; end
 
   def user_params
     params.require(:user).permit(:name, :email, :image)
   end
-
 end
