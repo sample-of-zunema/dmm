@@ -26,11 +26,12 @@
         <%= dream.user.name %>
       <% end %>
       </div>
-      <div class="col-4">夢名「
+      <div class="col-4">
+        夢名「&nbsp;
         <!--投稿の詳細へ-->
         <%= link_to dream_path(dream.id) do %>
           <%= dream.title %>
-        <% end %> 」
+        <% end %>&nbsp;」
       </div>
       <div class="col-2">
         <i class="fas fa-hand-holding-heart"></i> <%= dream.emotion %>
@@ -38,9 +39,10 @@
       <div class="col-3 text-center"><i class="fas fa-user-clock"></i> <%= dream.start_time.strftime("%Y年%m月%d日") %></div>
     </div>
     <div class="row">
-      <div class="col-10"> 夢の内容<br />
+      <div class="col-10">
+        &nbsp;夢の内容<br />
         <!--内容の表示を100文字までに設定-->
-        「 <%= dream.body.truncate(100) %> 」
+        「&nbsp;<%= dream.body.truncate(100) %>&nbsp;」
       </div>
     </div>
 
