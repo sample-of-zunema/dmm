@@ -23,16 +23,13 @@ body {
   background-color: #F8F8FF;
 }
 
-.notice {
-  padding: 0px;
-}
-
-.alert {
-  padding: 0px;
+.navbar container span {
+  color: white;
 }
 
 .navbar {
   background-image: linear-gradient(15deg, #1C00E0 0%, #9DA3B0 100%);
+  margin-bottom: 0;
 }
 
 .nav-item {
@@ -50,6 +47,10 @@ body {
 
 .nav-item a {
   color: #5E17EB;
+}
+
+.notice-alert {
+  margin-left: 10%;
 }
 
 .pagination li a {
