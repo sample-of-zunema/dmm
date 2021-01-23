@@ -2,7 +2,9 @@ ja:
   # 新規投稿のエラー表示を日本語化
   activerecord:
     models:
-      dream:
+      dream: "夢の投稿"
+      inquiry: "お問合せ"
+      adminuser: "管理者"
     attributes:
       dream:
         title: "夢のタイトル"
