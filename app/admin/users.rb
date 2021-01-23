@@ -5,6 +5,18 @@ ActiveAdmin.register User do
   # Uncomment all parameters which should be permitted for assignment
   #
   permit_params :name, :email, :image
+
+  show do |user|
+    attributes_table(*user.class.columns.collect { |column| column.name.to_sym })
+    panel "投稿一覧" do
+      table_for user.dreams do
+        column :title
+        column :emotion
+        column :body
+        column :start_time
+        end
+    end
+  end
   #
   # or
   #

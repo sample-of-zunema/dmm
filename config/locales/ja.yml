@@ -6,10 +6,27 @@ ja:
       inquiry: "お問合せ"
       adminuser: "管理者"
     attributes:
+      inquiry:
+        name: "名前"
+        email: "メールアドレス"
+        message: "メッセージ"
+        created_at: "お問合せした日"
+        updated_at: "編集した日"
+      comment:
+        user: "ユーザー"
+        dream: "タイトル"
+        comment: "コメント内容"
+        created_at: "コメントした日"
+        updated_at: "編集した日"
       dream:
         title: "夢のタイトル"
         body: "夢の内容"
+        emotion: "感情"
+        user: "ユーザー"
         start_time: "夢を見た日"
+        comment_id: "コメント"
+        created_at: "投稿した日"
+        updated_at: "編集した日"
   views:
     # ページャの日本語化
     pagination:
