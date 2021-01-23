@@ -9,9 +9,12 @@ class User < ApplicationRecord
   # 新規登録時nameも必須にするためバリデーションチェック
   validates :name, presence: true
 
+  # 名前に一意性を持たせる
+  validates_uniqueness_of :name
+
   # ゲストがパスワードを変更できない設定
   def self.guest
-    find_or_create_by!(email: 'guest@example.com') do |user|
+    find_or_create_by!(name: 'ゲスト', email: 'guest@example.com') do |user|
       user.password = SecureRandom.urlsafe_base64
     end
   end
