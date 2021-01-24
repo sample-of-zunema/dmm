@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe Dream, "モデルに関するテスト", type: :model do
+RSpec.describe Dream, 'モデルに関するテスト', type: :model do
 
   before do
     @user = FactoryBot.create(:user)
