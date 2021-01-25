@@ -4,9 +4,14 @@
     <div class="col-4">
       <h3><%= @user.name %>の夢日記</h3>
     </div>
+    <% if user_signed_in? %>
+    <div class="col-2">
+      <%= link_to "夢の新しい投稿", new_dream_path, class: "btn btn-primary" %>
+    </div>
+    <% end %>
     <!--ユーザーが投稿者なら編集ボタンを表示-->
     <% if @user == current_user %>
-    <div class="col-4 mx-auto">
+    <div class="col-2">
       <%= link_to '登録内容編集', edit_user_registration_path, method: :get, class: "btn btn-sm btn-success" %>
     </div>
     <% end %>
