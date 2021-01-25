@@ -42,7 +42,7 @@ describe'投稿のテスト' do
       end
     end
   end
-  describe '新規投稿ページのテスト' do
+  describe '投稿のテスト' do
     before do
       visit sign_in_path
       fill_in "user[name]", with: user.name
@@ -58,9 +58,14 @@ describe'投稿のテスト' do
         expect(FactoryBot.build(:dream, title: '')).to be_invalid
         expect(FactoryBot.build(:dream, title: '').errors[:title]).to include()
       end
-      it '投稿後のリダイレクト先は正しいか' do
-        expect(FactoryBot.build(:dream)).to be_valid
-        expect(page).to redirect_to dream_path(dream_id: assigns(:dream).id)
+      # it '投稿後のリダイレクト先は正しいか' do
+      #   expect(FactoryBot.build(:dream)).to be_valid
+      #   expect(page).to redirect_to dream_path(dream.id)
+      # end
+    end
+    context 'dream削除のテスト' do
+      it 'dreamの削除' do
+        expect{ dream.destroy }.to change{ Dream.count }.by(-1)
       end
     end
   end
