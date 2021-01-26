@@ -58,10 +58,14 @@ describe'投稿のテスト' do
         expect(FactoryBot.build(:dream, title: '')).to be_invalid
         expect(FactoryBot.build(:dream, title: '').errors[:title]).to include()
       end
-      # it '投稿後のリダイレクト先は正しいか' do
-      #   expect(FactoryBot.build(:dream)).to be_valid
-      #   expect(page).to redirect_to dream_path(dream.id)
-      # end
+      it '投稿後のリダイレクト先は正しいか' do
+        fill_in "dream[title]", with: Faker::Lorem.characters(number:10)
+        fill_in "dream[body]", with: Faker::Lorem.characters(number:30)
+        choose "dream_emotion_楽しい"
+        fill_in "dream[start_time]", with: DateTime.strptime("01/01/2021 10:00", "%m/%d/%Y %H:%M")
+        click_button "commit"
+        expect(page).to have_current_path dream_path(Dream.last)
+      end
     end
     context 'dream削除のテスト' do
       it 'dreamの削除' do
