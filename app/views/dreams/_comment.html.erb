@@ -2,7 +2,7 @@
   <p>コメント件数：<%= dream.comments.count %></p>
   <!--コメント表示-->
   <% dream.comments.each do |comment| %>
-    <div id="delete_<%= comment.id %>", class="col-5  border">
+    <div id="delete_<%= comment.id %>", class="border">
       <%= comment.user.name %>&emsp;
       <%= comment.created_at.strftime('%Y/%m/%d') %>&emsp;
       <%= comment.comment %>
