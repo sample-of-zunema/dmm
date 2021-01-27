@@ -11,8 +11,8 @@
     </div>
   <% end %>
 
-  <div class="row">
-    <div class="col-10 mx-auto">
+  <div class="row new-top">
+    <div class="col-2 mx-auto text-center">
       <h3>夢の投稿</h3>
     </div>
   </div>
@@ -20,22 +20,22 @@
   <!--新規投稿フォーム-->
   <%= form_with model:@dream, url:'/dreams', local:true do |f| %>
   <div class="row">
-    <div class="col-10 mx-auto">
-      <h4>夢のタイトル</h4>
+    <div class="col-3 mx-auto text-center">
+      <label>夢のタイトル</label>
       <%= f.text_field :title, placeholder: "タイトルを入力してください", :size => "30*50" %>
     </div>
   </div>
 
   <div class="row">
-    <div class="col-10 mx-auto">
-      <h4>夢の内容</h4>
+    <div class="col-6 mx-auto text-center">
+      <label>夢の内容</label>
       <%= f.text_area :body, placeholder: "内容を入力してください", :size => "70x5"  %>
     </div>
   </div>
 
   <div class="row">
-    <div class="col-10 mx-auto">
-      <h4>夢で感じた感情</h4>
+    <div class="col-6 mx-auto text-center align-center">
+      <label>夢で感じた感情</label><br />
       <label><%= f.radio_button :emotion, "楽しい", :checked => true %>楽しい</label>&ensp;
       <label><%= f.radio_button :emotion, "嫌気" %>嫌気</label>&ensp;
       <label><%= f.radio_button :emotion, "悲しい" %>悲しい</label>&ensp;
@@ -45,14 +45,14 @@
   </div>
 
   <div class="row">
-    <div class="col-10 mx-auto">
-      <h4>夢をみた日</h4>
+    <div class="col-3 mx-auto text-center">
+      <label>夢をみた日</label>
     <%= f.datetime_field :start_time %>
     </div>
   </div>
 
-  <div class="row">
-    <div class="col-10 mx-auto">
+  <div class="row submit">
+    <div class="col-2 mx-auto text-center">
       <%= f.submit "投稿" %>
     </div>
   </div>
