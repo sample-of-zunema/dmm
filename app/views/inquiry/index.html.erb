@@ -1,34 +1,48 @@
-<%= form_for @inquiry, :url => inquiry_confirm_path do |f| %>
-  <div class="page-header">
-    <h1>お問い合わせ</h1>
+<div class="container">
+
+  <%= form_for @inquiry, :url => inquiry_confirm_path do |f| %>
+  <div class="row inquiry-top">
+    <div class="col-3 mx-auto text-center">
+      <h2>お問い合わせ</h2>
+    </div>
   </div>
 
-  <!--入力内容のエラー表示-->
+    <!--入力内容のエラー表示-->
   <% if @inquiry.errors.any? %>
-    <div class="alert alert-danger" role="alert">
-      <strong>入力内容にエラーがあります</strong>
-      <ul>
-        <% @inquiry.errors.each do |attr, msg| %>
-          <li><%= msg %></li>
-        <% end %>
-      </ul>
-    </div>
+  <div class="alert alert-danger" role="alert">
+    <strong>入力内容にエラーがあります</strong>
+    <ul>
+      <% @inquiry.errors.each do |attr, msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
   <% end %>
 
   <!--問い合わせ内容入力フォーム-->
-  <table class="table">
-    <tr>
-      <th>名前<span class="text-danger">（必須）</span></th>
+  <div class="row">
+    <div class="col-3 mx-auto text-center">
+      <label>名前<span class="text-danger">（必須）</span></label>
       <td><%= f.text_field :name %></td>
-    </tr>
-    <tr>
-      <th>メールアドレス<span class="text-danger">（必須）</span></th>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-3 mx-auto text-center">
+      <label>メールアドレス<span class="text-danger">（必須）</spa></label>
       <td><%= f.text_field :email %></td>
-    </tr>
-    <tr>
-      <th>お問い合わせ内容</th>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-3 mx-auto text-center">
+      <label>お問い合わせ内容</label>
       <td><%= f.text_area :message %></td>
-    </tr>
-  </table>
-  <%= f.submit '確認', class: 'btn btn-primary' %>
-<% end %>
+    </div>
+  </div>
+  <div class="row inquiry-bottom">
+    <div class="col-3 mx-auto text-center">
+      <%= f.submit '確認する', class: 'btn btn-lg btn-primary' %>
+    </div>
+  </div>
+  <% end %>
+
+</div>
