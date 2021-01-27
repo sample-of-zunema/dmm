@@ -41,7 +41,7 @@
       </div>
     </div>
 
-    <div class="row">
+    <div class="row dream-contents">
       <div class="col-10">&nbsp;夢の内容<br />
         「&nbsp;<%= @dream.body %>&nbsp;」
       </div>
@@ -56,7 +56,7 @@
   </div>
 
   <!--コメント件数表示-->
-  <div class="row">
+  <div class="row show-bottom">
     <div class="col-5">
       <%= render 'dreams/comment', dream: @dream, comment: @comment %>
     </div>
