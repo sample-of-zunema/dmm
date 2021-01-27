@@ -16,8 +16,6 @@ class ApplicationController < ActionController::Base
 
   def configure_permitted_parameters
     if user_signed_in?
-      # 新規登録で名前とメールアドレスが必須
-      devise_parameter_sanitizer.permit(:sign_up, keys: %i[name email])
       # ログイン時に名前でログインできるように
       devise_parameter_sanitizer.permit(:sign_in, keys: [:name])
       # 編集時に名前が必須
