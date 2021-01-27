@@ -13,9 +13,39 @@
 }
 
 h1 {
-  padding-top: 80px;
+  padding: 30px 0;
+}
+
+h2, h3, .p {
+  padding: 20px;
+  background: white;
+  color: #5E17EB;
+  font-weight: bold;
+  border-radius: 50px;
+  opacity: 0.9;
 }
 
 h3 {
-  padding: 30px;
+  font-size: 1.5rem;
+}
+
+.btn-btn {
+  display: inline-block;
+  padding: 0.2em 0.7em;
+  margin-right: 3px;
+  text-decoration: none;
+  background: white;
+  border-left: solid 6px #5E17EB;
+  color: #5E17EB;
+  font-weight: bold;
+  border-radius: 50px;
+  opacity: 0.9;
+}
+
+.btn-top {
+  padding-top: 30px;
+}
+
+.btn-bottom {
+  padding-bottom: 40px;
 }

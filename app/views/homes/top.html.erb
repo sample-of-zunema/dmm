@@ -1,30 +1,36 @@
 <div class="main-container">
   <!--ロゴ画像-->
   <div class="row">
-    <div class="col-10 mx-auto">
+    <div class="col-10 mx-auto btn">
       <h1 class="text-center"><span><%= image_tag 'dreamsharing.png', size: "200x200" %></span></h1>
     </div>
   </div>
 
   <!--中央のコメント-->
   <div class="row">
-    <div class="col-10 mx-auto text-center">
+    <div class="col-3 mx-auto text-center">
       <h3>今日の夢、なんだっけ？</h3>
     </div>
   </div>
 
-  <!--会員登録とログインボタン-->
-  <div class="row">
-    <div class="col-4 mx-auto text-center">
-      <%= link_to "会員登録", new_user_registration_path, class: "btn btn-sm btn-primary" %>&emsp;
-      <%= link_to "ログイン", new_user_session_path, class: "btn btn-sm btn-primary" %>
+  <!--簡単ログインボタン-->
+  <div class="row btn-top">
+    <div class="col-2.5 mx-auto text-center btn-btn">
+      <%= link_to 'ゲストログイン（※ポートフォリオ用）', users_guest_sign_in_path, method: :post %>
     </div>
   </div>
 
-  <!--簡単ログインボタン-->
+  <!--ログインボタン-->
   <div class="row">
-    <div class="mx-auto">
-      <%= link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, method: :post, class: "btn btn-sm btn-primary" %>
+    <div class="col-1 mx-auto text-center btn-btn">
+      <%= link_to "ログイン", new_user_session_path %>
+    </div>
+  </div>
+
+  <!--会員登録ボタン-->
+  <div class="row btn-bottom">
+    <div class="col-1 mx-auto text-center btn-btn">
+      <%= link_to "会員登録", new_user_registration_path %>
     </div>
   </div>
 
