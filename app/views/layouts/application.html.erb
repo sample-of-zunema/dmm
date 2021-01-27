@@ -27,13 +27,12 @@
       </div>
     </nav>
 
-    <div class="notice-alert">
+    <!--表示されるビュー-->
+    <div class="image">
       <%= notice %>
       <%= alert %>
+      <%= yield %>
     </div>
-
-    <!--表示されるビュー-->
-    <%= yield %>
 
     <footer>
       <div class="container mt-5">
