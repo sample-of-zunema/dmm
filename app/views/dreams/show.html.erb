@@ -2,13 +2,13 @@
 
   <!--投稿のタイトル-->
   <div class="row align-items-center">
-    <div class="col-4">
-      <h4>夢&nbsp;名&nbsp;「&nbsp;<%= @dream.title %>&nbsp;」</h4>
+    <div class="col-4 text-center">
+      <h2>夢&nbsp;名&nbsp;「&nbsp;<%= @dream.title %>&nbsp;」</h2>
     </div>
     <!--投稿者なら編集ページへのボタンを表示-->
     <% if @user == current_user %>
     <div class="col-2">
-      <%= link_to "編集", edit_dream_path(@dream), class: "btn btn-success" %>
+      <%= link_to "編集する", edit_dream_path(@dream), class: "btn btn-lg btn-success" %>
     </div>
     <% end %>
   </div>
@@ -51,13 +51,17 @@
 
 
   <!--いいね表示-->
-  <div class="row">
-    <div class="col-1 dream_<%= @dream.id %>"><%= render 'dreams/favorites', dream: @dream %>&nbsp;</div>
+  <div class="row align-items-center text-center">
+    <div class="col-1 dream_<%= @dream.id %>">
+      <div class="favorites">
+        <%= render 'dreams/favorites', dream: @dream %>&nbsp;
+      </div>
+    </div>
   </div>
 
   <!--コメント件数表示-->
   <div class="row show-bottom">
-    <div class="col-5">
+    <div class="col-4 show-contents">
       <%= render 'dreams/comment', dream: @dream, comment: @comment %>
     </div>
     <!--コメント入力フォーム-->
