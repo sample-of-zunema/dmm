@@ -76,9 +76,9 @@ class ImageUploader < CarrierWave::Uploader::Base
 
   # ファイル名を日付にするとタイミングのせいでサムネイル名がずれる
   # ファイル名はランダムで一意になる
-  def filename
-    "#{secure_token}.#{file.extension}" if original_filename.present?
-  end
+  # def filename
+  #   "#{secure_token}.#{file.extension}" if original_filename.present?
+  # end
 
   protected
 
