@@ -75,8 +75,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def configure_permitted_parameters
     # 新規登録で名前とメールアドレスが必須
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :email])
+    devise_parameter_sanitizer.permit(:sign_up, keys: %i[name email])
     # 登録内容編集でメールアドレスと写真を編集できる設定
-    devise_parameter_sanitizer.permit(:account_update, keys: [:email, :image])
+    devise_parameter_sanitizer.permit(:account_update, keys: %i[email image])
   end
 end
