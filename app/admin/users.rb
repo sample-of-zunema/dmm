@@ -8,13 +8,13 @@ ActiveAdmin.register User do
 
   show do |user|
     attributes_table(*user.class.columns.collect { |column| column.name.to_sym })
-    panel "投稿一覧" do
+    panel '投稿一覧' do
       table_for user.dreams do
         column :title
         column :emotion
         column :body
         column :start_time
-        end
+      end
     end
   end
   #

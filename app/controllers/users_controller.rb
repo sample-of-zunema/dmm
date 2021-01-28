@@ -8,5 +8,4 @@ class UsersController < ApplicationController
 
   # 退会ページ
   def withdraw; end
-
 end
