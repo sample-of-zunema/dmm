@@ -30,7 +30,7 @@
         <% if dream.user.image.to_s.present? %>
           <%= image_tag dream.user.image.thumb.to_s, size: "50x50" %>
         <% else %>
-          <%= image_tag "no_image", size: "50x50" %>
+          <%= image_tag "no_image.jpg", size: "50x50" %>
         <% end %>
       <!--ログイン済みなら名前からユーザーページへ-->
       <% if user_signed_in? %>
