@@ -22,7 +22,7 @@ class DreamsController < ApplicationController
 
   # 投稿一覧ページ（ページャ追加）
   def index
-    @dreams = Dream.all.page(params[:page]).per(10)
+    @dreams = Dream.all.order(created_at: :desc).page(params[:page]).per(10)
   end
 
   # 投稿の詳細ページ
@@ -62,7 +62,7 @@ class DreamsController < ApplicationController
   def search
     @dreams = if params[:title].present?
                 # 投稿のタイトルと部分一致する投稿を検索
-                Dream.where('title LIKE ?', "%#{params[:title]}%").page(params[:page]).per(10)
+                Dream.where('title LIKE ?', "%#{params[:title]}%").order(created_at: :desc).page(params[:page]).per(10)
               else
                 Dream.none.page(params[:page]).per(10)
               end
