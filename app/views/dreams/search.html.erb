@@ -27,9 +27,11 @@
   <div class="container border">
     <div class="row border-bottom align-items-center">
       <div class="col-2">
+        <!--プロフィール画像があれば表示-->
         <% if dream.user.image.to_s.present? %>
           <%= image_tag dream.user.image.thumb.to_s, size: "50x50" %>
         <% else %>
+          <!--プロフィール画像が無い人に表示させる画像-->
           <%= image_tag "no_image.jpg", size: "50x50" %>
         <% end %>
       <!--ログイン済みなら名前からユーザーページへ-->
