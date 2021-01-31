@@ -14,24 +14,28 @@
 User.create!(
   [
     {
+      id:1,
       email: 'yume@otoko',
       password: 'yumeotoko',
       password_confirmation: 'yumeotoko',
       name: '夢男'
     },
     {
+      id:2,
       email: 'yume@onnna',
       password: 'yumeonnna',
       password_confirmation: 'yumeonnna',
       name: '夢女'
     },
     {
+      id:3,
       email: 'eiga@otoko',
       password: 'eigaotoko',
       password_confirmation: 'eigaotoko',
       name: '映画男'
     },
     {
+      id:4,
       email: 'eiga@onnna',
       password: 'eigaonnna',
       password_confirmation: 'eigaonnna',
