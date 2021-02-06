@@ -21,7 +21,7 @@
 [機能一覧](https://docs.google.com/spreadsheets/d/1_Wbrd3nzYUII7yQDDflaxTNURogzzksXR-1BC1uJdL4/edit?usp=sharing)
 
 ## 開発環境
-- OS：Linux(CentOS)
+- OS：Amazon Linux 2
 - 言語：HTML,CSS,JavaScript,Ruby,SQL
 - フレームワーク：Ruby on Rails
 - JSライブラリ：jQuery
